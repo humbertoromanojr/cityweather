@@ -1,0 +1,4 @@
+=== token city weather
+8d27c6bd3dfe53e445730aad3e4cbd02
+
+https://advisor.climatempo.com.br/api/v1/locale/city?state=es&token=8d27c6bd3dfe53e445730aad3e4cbd02

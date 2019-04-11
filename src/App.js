@@ -1,12 +1,35 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from "react";
+import { Alert, StyleSheet, Text, View, Dimensions } from "react-native";
 
-export default class App extends Component{
+import Citys from "./components/citys";
+import Climates from "./components/temperature";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: ""
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Cidade e Clima</Text>
-    
+        <View style={styles.content}>
+          <View style={styles.containerSelectCity}>
+            <Citys />
+          </View>
+
+          <View style={styles.containerCity}>
+            <View style={styles.image}>
+              <Text style={styles.titleImage}>Image City</Text>
+            </View>
+          </View>
+          <View style={styles.containerTemperature}>
+            <Text>Temperature</Text>
+            <Climates />
+          </View>
+        </View>
       </View>
     );
   }
@@ -15,13 +38,41 @@ export default class App extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#fff"
   },
-  welcome: {
+  content: {
+    flex: 1,
+    width: Dimensions.get("window").width,
+    textAlign: "center",
+    marginTop: 20,
+    padding: 20
+  },
+  containerSelectCity: {
+    flex: 3,
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: "#ff0"
+  },
+  title: {
+    fontSize: 16,
+    color: "#222"
+  },
+  containerCity: {
+    flex: 3,
+    alignItems: "center",
+    backgroundColor: "#ddd"
+  },
+  image: {
+    width: 40,
+    height: 40
+  },
+  titleImage: {
+    fontSize: 14
+  },
+  containerTemperature: {
+    flex: 3,
+    backgroundColor: "#f00"
   }
 });
