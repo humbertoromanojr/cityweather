@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  Picker,
-  Button,
-  Dimensions,
-  StyleSheet,
-  Alert,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, Picker, Dimensions, StyleSheet } from 'react-native';
 
 export default class citys extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      city: '',
-    };
-  }
+  state = { city: '' };
 
   render() {
     return (

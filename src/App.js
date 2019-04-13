@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-import { Alert, StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 
 import Citys from "./components/citys";
 import Climates from "./components/temperature";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      city: ""
-    };
-  }
+  state = { city: "" };
 
   render() {
     return (
@@ -40,20 +35,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-
     backgroundColor: "#fff"
   },
   content: {
     flex: 1,
     width: Dimensions.get("window").width,
     textAlign: "center",
-    marginTop: 20,
     padding: 10
   },
   containerSelectCity: {
     flex: 3,
     fontSize: 20,
-    backgroundColor: "#ff0"
+    backgroundColor: "#666"
   },
   title: {
     fontSize: 16,
@@ -73,6 +66,6 @@ const styles = StyleSheet.create({
   },
   containerTemperature: {
     flex: 3,
-    backgroundColor: "#f00"
+    backgroundColor: "#999"
   }
 });
