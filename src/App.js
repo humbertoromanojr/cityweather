@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     textAlign: "center",
     marginTop: 20,
-    padding: 20
+    padding: 10
   },
   containerSelectCity: {
     flex: 3,
