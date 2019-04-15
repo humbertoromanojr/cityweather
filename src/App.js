@@ -5,8 +5,6 @@ import Citys from "./components/citys";
 import Climates from "./components/temperature";
 
 export default class App extends Component {
-  state = { city: "" };
-
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +19,7 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.containerTemperature}>
-            <Text>Temperature</Text>
+            <Text style={styles.temperatureTitle}>Temperature</Text>
             <Climates />
           </View>
         </View>
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
   containerCity: {
     flex: 3,
     alignItems: "center",
-    backgroundColor: "#ddd"
+    backgroundColor: "#eee"
   },
   image: {
     width: 40,
@@ -66,6 +64,12 @@ const styles = StyleSheet.create({
   },
   containerTemperature: {
     flex: 3,
-    backgroundColor: "#999"
+    backgroundColor: "#ddd"
+  },
+  temperatureTitle: {
+    backgroundColor: "#fff",
+    fontSize: 22,
+    color: "#333",
+    paddingLeft: 5
   }
 });

@@ -1,15 +1,17 @@
 import { SELECT_CITY } from "../actions/actionTypes";
 
 const initialState = {
-  city: ""
+  selectCity: ""
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(action);
+
   switch (action.type) {
     case SELECT_CITY:
       return {
         ...state,
-        city: action.payload.city
+        selectCity: action.payload
       };
     default:
       return state;

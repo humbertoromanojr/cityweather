@@ -1,19 +1,29 @@
-import React, { Component } from 'react';
-import { View, Text, Picker, Dimensions, StyleSheet } from 'react-native';
+import React, { Component } from "react";
 
-export default class citys extends Component {
-  state = { city: '' };
+import { connect } from "react-redux";
+import { selectCity } from "../store/actions/cityAction";
+
+import { View, Text, Picker, Dimensions, StyleSheet } from "react-native";
+
+class citys extends Component {
+  state = {
+    selectCity: ""
+  };
 
   render() {
+    console.log(this.props);
+
     return (
       <View style={styles.container}>
         <View style={styles.title}>
           <Text>Selecione a cidade</Text>
         </View>
         <Picker
-          selectedValue={this.state.city}
+          selectedValue={this.state.selectCity}
           style={{ height: 50, width: 200 }}
-          onValueChange={(itemValue, itemIndex) => this.setState({ city: itemValue })}
+          onValueChange={(itemValue, itemIndex) =>
+            this.setState({ selectCity: itemValue })
+          }
         >
           <Picker.Item label="Vila Velha" value="Vila Velha" />
           <Picker.Item label="Serra" value="Serra" />
@@ -28,7 +38,8 @@ export default class citys extends Component {
         <View>
           <Text>Cidade atual:</Text>
           <View style={styles.textSelected}>
-            <Text>{this.state.city}</Text>
+            <Text>{this.state.selectCity}</Text>
+            <Text>t: {this.props.selectCity}</Text>
           </View>
         </View>
       </View>
@@ -36,36 +47,45 @@ export default class citys extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  selectCity: state.cityReducer.selectCity
+});
+
+export default connect(
+  mapStateToProps,
+  { selectCity }
+)(citys);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 10,
-    backgroundColor: '#fff',
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+    backgroundColor: "#fff"
   },
   containerSelectCity: {
     flex: 3,
     fontSize: 20,
-    backgroundColor: '#ff0',
+    backgroundColor: "#ff0"
   },
   title: {
     fontSize: 16,
-    color: '#222',
+    color: "#222"
   },
   containerCity: {
     flex: 3,
-    alignItems: 'center',
-    backgroundColor: '#ddd',
+    alignItems: "center",
+    backgroundColor: "#ddd"
   },
   image: {
     width: 40,
-    height: 40,
+    height: 40
   },
   textSelected: {
-    backgroundColor: '#ddd',
-    color: '#222',
+    backgroundColor: "#f4f4f4",
+    color: "#222",
     padding: 10,
-    width: Dimensions.get('window').width / 2,
-  },
+    width: Dimensions.get("window").width / 2
+  }
 });

@@ -1,8 +1,8 @@
 import { SELECT_CITY } from "./actionTypes";
 
-export const cityName = city => {
+export const selectCity = itemValue => {
   return {
     type: SELECT_CITY,
-    payload: city
+    payload: itemValue
   };
 };
