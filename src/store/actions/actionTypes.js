@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 export const ACTION_SELECT_CITY = "ACTION_SELECT_CITY";
 export const ACTION_NUMBER_CITY = "ACTION_NUMBER_CITY";
+=======
+export const ACTION_SELECT_CITY = 'SELECT_CITY';
+>>>>>>> 5743981a5c3cba2fbf68c339aeab52b85dc1860b

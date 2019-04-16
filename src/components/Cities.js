@@ -53,7 +53,11 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   null,
   mapDispatchToProps
+<<<<<<< HEAD:src/components/Cities.js
 )(Cities);
+=======
+)(citys);
+>>>>>>> 5743981a5c3cba2fbf68c339aeab52b85dc1860b:src/components/citys.js
 
 const styles = StyleSheet.create({
   container: {
