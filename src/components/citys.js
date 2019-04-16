@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { selectCity } from "../store/actions/cityAction";
+import { bindActionCreators } from "redux";
+import { actionSelectCity } from "../store/actions/cityAction";
 
 import { View, Text, Picker, Dimensions, StyleSheet } from "react-native";
 
@@ -11,7 +12,8 @@ class citys extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(`PROP: ${JSON.stringify(this.props, undefined, 2)}`);
+    // console.log(`STATE: ${JSON.stringify(this.state, undefined, 2)}}`);
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Selecione a cidade</Text>
@@ -19,9 +21,12 @@ class citys extends Component {
         <Picker
           selectedValue={this.state.selectCity}
           style={{ height: 50, width: 200 }}
-          onValueChange={(itemValue, itemIndex) =>
-            this.setState({ selectCity: itemValue })
-          }
+          onValueChange={(selectedCity, itemIndex) => {
+            this.props.actionSelectCity(selectedCity);
+            this.setState({
+              selectCity: selectedCity
+            });
+          }}
         >
           <Picker.Item label="Vila Velha" value="Vila Velha" />
           <Picker.Item label="Serra" value="Serra" />
@@ -45,13 +50,16 @@ class citys extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  selectCity: state.cityReducer.selectCity
-});
+// const mapStateToProps = state => ({
+//   selectCity: state.cityReducer.selectCity
+// });
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ actionSelectCity }, dispatch);
 
 export default connect(
-  mapStateToProps,
-  null
+  null,
+  mapDispatchToProps
 )(citys);
 
 const styles = StyleSheet.create({

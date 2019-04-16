@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import axios from "axios";
 
+import { connect } from "react-redux";
+
 const baseUrl = `http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/8283/days/15?token=8d27c6bd3dfe53e445730aad3e4cbd02`;
 
-export default class imageCity extends Component {
+class imageCity extends Component {
   state = {
     climates: []
   };
@@ -30,12 +32,14 @@ export default class imageCity extends Component {
   render() {
     //console.log(this.state);
     const imgCity = `../img/vila_velha.jpg`;
-    return this.state.climates.map(climate => (
-      <View key={climate.id} climate={climate}>
-        {/* <Text>{climate.name}</Text> */}
-        <Image source={require(imgCity)} style={styles.image} />
-      </View>
-    ));
+    return <Text> ee {this.props.propFromReduxSelectedCity}</Text>;
+
+    // return this.state.climates.map(climate => (
+    //   <View key={climate.id} climate={climate}>
+    //     {/* <Text>{climate.name}</Text> */}
+    //     <Image source={require(imgCity)} style={styles.image} />
+    //   </View>
+    // ));
   }
 }
 
@@ -51,3 +55,12 @@ const styles = StyleSheet.create({
     height: "100%"
   }
 });
+
+const mapReduxStateToComponentProps = state => ({
+  propFromReduxSelectedCity: state.cityReducer.reduxSelectCity
+});
+
+export default connect(
+  mapReduxStateToComponentProps,
+  null
+)(imageCity);
