@@ -1,8 +1,10 @@
-import { SELECT_CITY } from "./actionTypes";
+import { ACTION_SELECT_CITY } from "./actionTypes";
 
-export const selectCity = itemValue => {
+export const actionSelectCity = banana => {
   return {
-    type: SELECT_CITY,
-    payload: itemValue
+    type: ACTION_SELECT_CITY,
+    payload: {
+      banana
+    }
   };
 };

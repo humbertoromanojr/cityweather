@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 
-import Citys from "./components/citys";
-import Climates from "./components/temperature";
-import SelectedCity from "./components/imageCity";
+import Cities from "./components/Cities";
+import Temperature from "./components/Temperature";
+import ImageCity from "./components/ImageCity";
+import SearchCity from "./components/SearchCity";
 
 export default class App extends Component {
   render() {
@@ -11,16 +12,17 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={styles.content}>
           <View style={styles.containerSelectCity}>
-            <Citys />
+            <Cities />
           </View>
 
           <View style={styles.containerImageCity}>
-            <SelectedCity />
+            <ImageCity />
+            <SearchCity />
           </View>
 
           <View style={styles.containerTemperature}>
             <Text style={styles.temperatureTitle}>Temperature</Text>
-            <Climates />
+            <Temperature />
           </View>
         </View>
       </View>
