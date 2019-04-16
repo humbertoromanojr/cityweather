@@ -12,12 +12,10 @@ class citys extends Component {
 
   render() {
     console.log(this.props);
-
     return (
       <View style={styles.container}>
-        <View style={styles.title}>
-          <Text>Selecione a cidade</Text>
-        </View>
+        <Text style={styles.title}>Selecione a cidade</Text>
+
         <Picker
           selectedValue={this.state.selectCity}
           style={{ height: 50, width: 200 }}
@@ -39,7 +37,7 @@ class citys extends Component {
           <Text>Cidade atual:</Text>
           <View style={styles.textSelected}>
             <Text>{this.state.selectCity}</Text>
-            <Text>t: {this.props.selectCity}</Text>
+            <Text>{this.props.selectCity}</Text>
           </View>
         </View>
       </View>
@@ -53,7 +51,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { selectCity }
+  null
 )(citys);
 
 const styles = StyleSheet.create({
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff0"
   },
   title: {
-    fontSize: 16,
+    fontSize: 26,
     color: "#222"
   },
   containerCity: {

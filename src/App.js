@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 
 import Citys from "./components/citys";
 import Climates from "./components/temperature";
+import SelectedCity from "./components/imageCity";
 
 export default class App extends Component {
   render() {
@@ -13,11 +14,10 @@ export default class App extends Component {
             <Citys />
           </View>
 
-          <View style={styles.containerCity}>
-            <View style={styles.image}>
-              <Text style={styles.titleImage}>Image City</Text>
-            </View>
+          <View style={styles.containerImageCity}>
+            <SelectedCity />
           </View>
+
           <View style={styles.containerTemperature}>
             <Text style={styles.temperatureTitle}>Temperature</Text>
             <Climates />
@@ -50,10 +50,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#222"
   },
-  containerCity: {
+  containerImageCity: {
     flex: 3,
-    alignItems: "center",
-    backgroundColor: "#eee"
+    backgroundColor: "#fff"
   },
   image: {
     width: 40,

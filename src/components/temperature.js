@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import axios from "axios";
 
-const baseUrl = `http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/3477/days/15?token=8d27c6bd3dfe53e445730aad3e4cbd02`;
+const baseUrl = `http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/8283/days/15?token=8d27c6bd3dfe53e445730aad3e4cbd02`;
 
 export default class citys extends Component {
   state = {
@@ -47,7 +47,6 @@ export default class citys extends Component {
   }
 
   render() {
-    console.log(this.state);
     return <View style={styles.container}>{this.renderClimates()}</View>;
   }
 }
