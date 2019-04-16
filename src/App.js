@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 
 import Cities from "./components/Cities";
 import Temperature from "./components/Temperature";
-import ImageCity from "./components/ImageCity";
+import ImgCity from "./components/ImgCity";
 import SearchCity from "./components/SearchCity";
 
 export default class App extends Component {
@@ -16,7 +16,7 @@ export default class App extends Component {
           </View>
 
           <View style={styles.containerImageCity}>
-            <ImageCity />
+            <ImgCity />
             <SearchCity />
           </View>
 

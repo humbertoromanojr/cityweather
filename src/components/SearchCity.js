@@ -10,8 +10,6 @@ class Searchcity extends Component {
     cities: []
   };
 
-  componentDidUpdate() {}
-
   componentWillMount() {
     axios
       .get(baseUrl)
