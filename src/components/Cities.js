@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionSelectCity } from "../store/actions/cityAction";
+import { actionUf } from "../store/actions/UfAction";
 
 import { View, Text, Picker, Dimensions, StyleSheet } from "react-native";
 
 class Cities extends Component {
   state = {
-    selectCity: ""
+    selectCity: "",
+    UF: ""
   };
 
   render() {
@@ -16,28 +18,46 @@ class Cities extends Component {
     // console.log(`STATE: ${JSON.stringify(this.state, undefined, 2)}}`);
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Selecione a cidade</Text>
-
-        <Picker
-          selectedValue={this.state.selectCity}
-          style={{ height: 50, width: 200 }}
-          onValueChange={(selectedCity, itemIndex) => {
-            this.props.actionSelectCity(selectedCity);
-            this.setState({
-              selectCity: selectedCity
-            });
-          }}
-        >
-          <Picker.Item label="Vila Velha" value="Vila Velha" />
-          <Picker.Item label="Serra" value="Serra" />
-          <Picker.Item label="Rio de Janeiro" value="Rio de Janeiro" />
-          <Picker.Item label="Vitória" value="Vitória" />
-          <Picker.Item label="Belo Horizonte" value="Belo Horizonte" />
-          <Picker.Item label="Viana" value="Viana" />
-          <Picker.Item label="Guarapari" value="Guarapari" />
-          <Picker.Item label="São Paulo" value="São Paulo" />
-          <Picker.Item label="Cariacica" value="Cariacica" />
-        </Picker>
+        <View style={styles.containerCities}>
+          <Text style={styles.title}>Selecione a cidade</Text>
+          <Picker
+            selectedValue={this.state.selectCity}
+            style={styles.piker}
+            onValueChange={(selectedCity, itemIndex) => {
+              this.props.actionSelectCity(selectedCity);
+              this.setState({
+                selectCity: selectedCity
+              });
+            }}
+          >
+            <Picker.Item label="Vila Velha" value="Vila Velha" />
+            <Picker.Item label="Serra" value="Serra" />
+            <Picker.Item label="Rio de Janeiro" value="Rio de Janeiro" />
+            <Picker.Item label="Vitória" value="Vitória" />
+            <Picker.Item label="Belo Horizonte" value="Belo Horizonte" />
+            <Picker.Item label="Viana" value="Viana" />
+            <Picker.Item label="Guarapari" value="Guarapari" />
+            <Picker.Item label="São Paulo" value="São Paulo" />
+            <Picker.Item label="Cariacica" value="Cariacica" />
+          </Picker>
+        </View>
+        <View style={styles.containerStates}>
+          <Text style={styles.title}>Selecione o estado</Text>
+          <Picker
+            selectedValue={this.state.UF}
+            style={styles.piker}
+            onValueChange={(selectedUf, itemIndex) => {
+              this.props.actionUf(selectedUf);
+              this.setState({
+                UF: selectedUf
+              });
+            }}
+          >
+            <Picker.Item label="ES" value="ES" />
+            <Picker.Item label="RJ" value="RJ" />
+            <Picker.Item label="SP" value="SP" />
+          </Picker>
+        </View>
       </View>
     );
   }
@@ -48,7 +68,7 @@ class Cities extends Component {
 // });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ actionSelectCity }, dispatch);
+  bindActionCreators({ actionSelectCity, actionUf }, dispatch);
 
 export default connect(
   null,
@@ -87,5 +107,9 @@ const styles = StyleSheet.create({
     color: "#222",
     padding: 10,
     width: Dimensions.get("window").width / 2
+  },
+  piker: {
+    height: 30,
+    width: 200
   }
 });

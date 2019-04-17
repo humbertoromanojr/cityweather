@@ -5,7 +5,15 @@ import { connect } from "react-redux";
 
 class ImgCity extends Component {
   render() {
-    return <Text> Cidade: {this.props.propFromReduxSelectedCity}</Text>;
+    return (
+      <View>
+        <Text>
+          {" "}
+          Cidade: {this.props.propFromReduxSelectedCity} - Estado:{" "}
+          {this.props.propFromReduxSelectedUf}
+        </Text>
+      </View>
+    );
   }
 }
 
@@ -23,7 +31,8 @@ const styles = StyleSheet.create({
 });
 
 const mapReduxStateToComponentProps = state => ({
-  propFromReduxSelectedCity: state.cityReducer.reduxSelectCity
+  propFromReduxSelectedCity: state.cityReducer.reduxSelectCity,
+  propFromReduxSelectedUf: state.UfReducer.reduxUf
 });
 
 export default connect(

@@ -1,2 +1,2 @@
 export const ACTION_SELECT_CITY = "ACTION_SELECT_CITY";
-export const ACTION_NUMBER_CITY = "ACTION_NUMBER_CITY";
+export const ACTION_UF = "ACTION_UF";
